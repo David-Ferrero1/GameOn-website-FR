@@ -18,7 +18,7 @@ const formLast = document.getElementById('lastName'); // Get lastname from form
 const formEmail = document.getElementById('emailAddress'); // Get email from form
 const formBirthdate = document.getElementById('birthDate'); // Get birthdate from form
 const formQuantity = document.getElementById('pastTournament'); // Get quantity of number of tournament participated from form
-let formLocation = document.querySelector('input[name="location"]:checked'); // Get location of next tournament input with let
+let formLocationCheck = document.querySelector('input[name="location"]:checked'); // Get location of next tournament input with let
 const formTermsConditions = document.getElementById('checkbox1'); // Get terms conditions input checkbox
 
 const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -43,6 +43,7 @@ function closeModal() {
 
 // Ajoute un message d'erreur
 function addFormErrorMessage(element, errorMessage){
+  console.log(element);
   element.parentElement.setAttribute('data-error', errorMessage);
   element.parentElement.setAttribute('data-error-visible', 'true');
 }
@@ -107,10 +108,10 @@ function formQuantityIsValid(){
 
 function formLocationIsValid(){
   if(formLocationCheck == null){
-    addFormErrorMessage(formLocation, "Vous devez choisir une option.");
+    addFormErrorMessage(formLocationCheck, "Vous devez choisir une option.");
     formIsValid = false;
   } else{
-    removeFormErrorMessage(formLocation);
+    removeFormErrorMessage(formLocationCheck);
   }
 }
 
