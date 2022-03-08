@@ -32,7 +32,17 @@ let formIsValid; // initialize form validation;
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 // close modal event
-modalClose.addEventListener("click", closeModal);
+modalClose.addEventListener("click", function(){
+  closeModal();
+  if(modalbg.classList.contains("formSubmitted")){
+    restartModal();
+  }
+});
+
+modalCloseSucess.addEventListener("click", function(){
+  closeModal();
+  restartModal();
+});
 
 // launch modal form
 function launchModal() {
@@ -42,6 +52,19 @@ function launchModal() {
 // close modal form
 function closeModal() {
   modalbg.style.display = "none";
+}
+
+// Ajout fonction de restart du formulaire
+function restartModal(){
+  modalbg.classList.remove('formSubmitted');
+  modalBody.style.opacity = "1";
+  modalSuccess.style.display = "none";
+  formFirst.value="";
+  formLast.value="";
+  formEmail.value="";
+  formBirthdate.value="";
+  formQuantity.value="";
+  formLocationCheck.checked = false;
 }
 
 // Ajoute un message d'erreur
@@ -145,7 +168,9 @@ function validate(event){
   formTermsConditionsIsValid();
 
   if(formIsValid){
-    console.log("Inscription envoyée");
+    modalbg.classList.add('formSubmitted');
+    modalBody.style.opacity = "0";
+    modalSuccess.style.display = "flex";
     return true;
   } else{
     console.error("Attention! Une erreur s'est produite");
