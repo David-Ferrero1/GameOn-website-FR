@@ -13,13 +13,16 @@ const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".form-data");
 const modalClose = document.querySelector(".close");
 
-const formFirst = document.getElementById('firstName'); // take firstname from form
-const formLast = document.getElementById('lastName'); // take lastname from form
-const formEmail = document.getElementById('emailAddress'); // take email from form
-const formBirthdate = document.getElementById('birthDate'); // take birthdate from form
-const formQuantity = document.getElementById('pastTournament'); // take quantity of number of tournament participated from form
-let formLocationCheck = document.querySelector('input[name="location"]:checked'); // take location of next tournament input with let
-const formTermsConditions = document.getElementById('checkbox1'); // take terms conditions input checkbox
+const formFirst = document.getElementById("firstName"); // take firstname from form
+const formLast = document.getElementById("lastName"); // take lastname from form
+const formEmail = document.getElementById("emailAddress"); // take email from form
+const formBirthdate = document.getElementById("birthDate"); // take birthdate from form
+const formQuantity = document.getElementById("pastTournament"); // take quantity of number of tournament participated from form
+let formLocationCheck = document.querySelector("input[name='location']:checked"); // take location of next tournament input with let
+const formTermsConditions = document.getElementById("checkbox1"); // take terms conditions input checkbox
+const modalBody = document.querySelector(".modal-body");
+const modalSuccess = document.querySelector(".modal-success")
+const modalCloseSucess = document.querySelector(".modal-success-close");
 
 const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
