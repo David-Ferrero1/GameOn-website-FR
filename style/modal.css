@@ -304,6 +304,7 @@ input[data-error]::after {
   opacity: 1;
   cursor: pointer;
   transform: scale(0.7);
+  z-index: 3;
 }
 .close:before,
 .close:after {
@@ -331,6 +332,25 @@ input[data-error]::after {
   color: #fff;
   cursor: pointer;
   border: 0;
+}
+
+/*Modal de confirmation*/
+.modal-success{
+  text-align: center;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modal-success-close{
+  position: absolute;
+  bottom: 20px;
 }
 /* custom select styles */
 .custom-select {
