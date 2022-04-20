@@ -10,8 +10,8 @@ function editNav() {
 // DOM Elements
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
-const formData = document.querySelectorAll(".form-data");
 const modalClose = document.querySelector(".close");
+const formData = document.querySelectorAll(".form-data");
 
 const formFirst = document.getElementById("firstName"); // take firstname from form
 const formLast = document.getElementById("lastName"); // take lastname from form
@@ -25,8 +25,9 @@ const modalSuccess = document.querySelector(".modal-success")
 const modalCloseSucess = document.querySelector(".modal-success-close");
 
 const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+const regexName = /^[a-z-A-Z ,.'-]+$/;
 
-let formIsValid; // initialize form validation;
+let formIsValid; // initialiser la validation du formulaire;
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -69,9 +70,9 @@ function restartModal(){
 
 // Ajoute un message d'erreur
 function addFormErrorMessage(element, errorMessage){
-  console.log(element);
-  element.parentElement.setAttribute('data-error', errorMessage);
-  element.parentElement.setAttribute('data-error-visible', 'true');
+      element.parentElement.setAttribute('data-error', errorMessage);
+      element.parentElement.setAttribute('data-error-visible', 'true');
+      console.log(event);
 }
 
 // Supprime le message d'erreur
@@ -80,13 +81,7 @@ function removeFormErrorMessage(element){
   element.parentElement.removeAttribute('data-error-visible');
 }
 
-
-/*
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
-})
-*/
-
+// Vérifier la validité du prénom
 function formFirstIsValid(){
   if(formFirst.value == "" || formFirst.value.length < 2){
     addFormErrorMessage(formFirst, "Veuillez entrer 2 caractères ou plus pour le champ du nom.");
@@ -96,6 +91,7 @@ function formFirstIsValid(){
   }
 }
 
+// Vérifier la validité du nom
 function formLastIsValid(){
   if(formLast.value == "" || formLast.value.length < 2){
     addFormErrorMessage(formLast, "Veuillez entrer 2 caractères ou plus pour le champ du nom.");
@@ -105,6 +101,7 @@ function formLastIsValid(){
   }
 }
 
+// Vérifier la validité de l'email
 function formEmailIsValid(){
   if (regexEmail.test(formEmail.value) != true){
     addFormErrorMessage(formEmail, "Veuillez entrer une adresse email valide.");
@@ -114,15 +111,20 @@ function formEmailIsValid(){
   }
 }
 
+// Vérifier la validité de la date de naissance
 function formBirthdateIsValid(){
   if(formBirthdate.value == ""){
     addFormErrorMessage(formBirthdate, "Vous devez entrer votre date de naissance.");
+    formIsValid = false;
+  } else if (Date.parse(formBirthdate.value) > Date.now()){
+    addFormErrorMessage(formBirthdate, "Vous devez entrer une date de naissance valide.");
     formIsValid = false;
   } else {
     removeFormErrorMessage(formBirthdate);
   }
 }
 
+// Vérifier la validité du nombre de partie
 function formQuantityIsValid(){
   if(formQuantity.value == "" || isNaN(formQuantity.value)){
     addFormErrorMessage(formQuantity, "Veuillez entrer un nombre.");
@@ -132,6 +134,7 @@ function formQuantityIsValid(){
   }
 }
 
+// Vérifier la validité du lieu de l'évenement souhaité
 function formLocationIsValid(){
   if(formLocationCheck == null){
     addFormErrorMessage(formLocationCheck, "Vous devez choisir une option.");
@@ -141,6 +144,7 @@ function formLocationIsValid(){
   }
 }
 
+// Vérifier que les conditions sont bien cochés
 function formTermsConditionsIsValid(){
   if(!formTermsConditions.checked){
     addFormErrorMessage(formTermsConditions, "Vous devez vérifier que vous acceptez les termes et conditions.");
@@ -155,7 +159,6 @@ function validate(event){
   //Prevent to submit
   event.preventDefault();
 
-  // Refresh form location check each time we submit
   formLocationCheck = document.querySelector('input[name="location"]:checked');
   formIsValid = true;
 
@@ -173,7 +176,6 @@ function validate(event){
     modalSuccess.style.display = "flex";
     return true;
   } else{
-    console.error("Attention! Une erreur s'est produite");
     return false;
   }
 }
