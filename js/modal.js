@@ -70,9 +70,12 @@ function restartModal(){
 
 // Ajoute un message d'erreur
 function addFormErrorMessage(element, errorMessage){
-      element.parentElement.setAttribute('data-error', errorMessage);
-      element.parentElement.setAttribute('data-error-visible', 'true');
-      console.log(event);
+        if ( element != undefined || element != null) {
+              element.parentElement.setAttribute('data-error', errorMessage);
+              element.parentElement.setAttribute('data-error-visible', 'true');
+        }
+      
+      console.log(element);
 }
 
 // Supprime le message d'erreur
