@@ -70,6 +70,7 @@ function restartModal(){
 
 // Ajoute un message d'erreur
 function addFormErrorMessage(element, errorMessage){
+        debugger;
         if ( element != undefined || element != null) {
               element.parentElement.setAttribute('data-error', errorMessage);
               element.parentElement.setAttribute('data-error-visible', 'true');
