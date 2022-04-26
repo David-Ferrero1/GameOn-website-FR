@@ -131,7 +131,7 @@ function formBirthdateIsValid() {
       "Vous devez entrer votre date de naissance."
     );
     formIsValid = false;
-  } else if (Date.parse(formBirthdate.value) == NaN) {
+  } else if (Date.parse(formBirthdate.value) == NaN) { // autre solution isNaN(Date.parse(formBirthdate.value))
     addFormErrorMessage(
       formBirthdate,
       "Vous devez entrer une date de naissance valide."
