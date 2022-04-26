@@ -70,13 +70,10 @@ function restartModal(){
 
 // Ajoute un message d'erreur
 function addFormErrorMessage(element, errorMessage){
-        debugger;
         if ( element != undefined || element != null) {
               element.parentElement.setAttribute('data-error', errorMessage);
               element.parentElement.setAttribute('data-error-visible', 'true');
         }
-      
-      console.log(element);
 }
 
 // Supprime le message d'erreur
@@ -159,7 +156,7 @@ function formTermsConditionsIsValid(){
 }
 
 // Valide toutes les informations avant envoi
-function validate(event){
+function validate (event) {
   //Prevent to submit
   event.preventDefault();
 
