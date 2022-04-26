@@ -21,9 +21,7 @@ const formQuantity = document.getElementById("pastTournament"); // take quantity
 let formLocationCheck = document.querySelector(
   "input[name='location']:checked"
 ); // take location of next tournament input with let
-let formLocations = document.querySelector(  
-  "input[name='location']"
-);
+let formLocations = document.querySelector("input[name='location']");
 const formTermsConditions = document.getElementById("checkbox1"); // take terms conditions input checkbox
 const modalBody = document.querySelector(".modal-body");
 const modalSuccess = document.querySelector(".modal-success");
@@ -95,7 +93,7 @@ function formFirstIsValid() {
       "Veuillez entrer 2 caractères ou plus pour le champ du prénom."
     );
     formIsValid = false;
-  } else if (regexName.test(formFirst.value) != true) { 
+  } else if (regexName.test(formFirst.value) != true) {
     addFormErrorMessage(
       formFirst,
       "Veuillez entrer des caractères valide pour le champ du prénom."
@@ -114,7 +112,7 @@ function formLastIsValid() {
       "Veuillez entrer 2 caractères ou plus pour le champ du nom."
     );
     formIsValid = false;
-  } else if (regexName.test(formLast.value) != true) { 
+  } else if (regexName.test(formLast.value) != true) {
     addFormErrorMessage(
       formLast,
       "Veuillez entrer des caractères valide pour le champ du nom."
@@ -143,7 +141,8 @@ function formBirthdateIsValid() {
       "Vous devez entrer votre date de naissance."
     );
     formIsValid = false;
-  } else if (Date.parse(formBirthdate.value) == NaN) { // autre solution isNaN(Date.parse(formBirthdate.value))
+  } else if (Date.parse(formBirthdate.value) == NaN) {
+    // autre solution isNaN(Date.parse(formBirthdate.value))
     addFormErrorMessage(
       formBirthdate,
       "Vous devez entrer une date de naissance valide."
