@@ -95,6 +95,12 @@ function formFirstIsValid() {
       "Veuillez entrer 2 caractères ou plus pour le champ du prénom."
     );
     formIsValid = false;
+  } else if (regexName.test(formFirst.value) != true) { 
+    addFormErrorMessage(
+      formFirst,
+      "Veuillez entrer des caractères valide pour le champ du prénom."
+    );
+    formIsValid = false;
   } else {
     removeFormErrorMessage(formFirst);
   }
@@ -106,6 +112,12 @@ function formLastIsValid() {
     addFormErrorMessage(
       formLast,
       "Veuillez entrer 2 caractères ou plus pour le champ du nom."
+    );
+    formIsValid = false;
+  } else if (regexName.test(formLast.value) != true) { 
+    addFormErrorMessage(
+      formLast,
+      "Veuillez entrer des caractères valide pour le champ du nom."
     );
     formIsValid = false;
   } else {
